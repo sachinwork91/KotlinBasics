@@ -97,7 +97,32 @@ Now Retriving the Object from intent
  val dog = intent.getSerializableExtra("dog") as? Animal
 
 ```
+* Setting up Simple List View in Kotlin
 
+Define the ListView as the root element in the layout xml file for the  main activity.
+
+```
+ lateinit var listView: ListView
+ 
+ override fun onCreate(savedInstanceState: Bundle?){
+   ...
+   listView = findViewById(R.id.listview)
+   //Creating the Data For the ListView
+   var listData = arrayOf("Hello", "HI" , "Burger", "Pizza" )
+   // Using the Adapter to pass the data into the listView                         
+   listView.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listData)
+  }
+```
+
+* Setting OnClickListener to a ListView
+
+Below code allows to set a onClickListener on a ListView
+```
+ listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
+            Toast.makeText(applicationContext, "List is clicked " + listData[i]  , Toast.LENGTH_SHORT).show()
+     }
+
+```
 
 
 
