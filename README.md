@@ -124,6 +124,35 @@ Below code allows to set a onClickListener on a ListView
 
 ```
 
+* Getting rid of findViewById
+ 
+ we can directly access the views in kotlin by using the ids associated with them in a the layout file
+ Lets say if we want to attach a onClickListener to a button, then just use the ID associated with it
+ 
+```
+ <Button
+ android:id ="@+id/addButton"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ />
+ ```
+Now in your Activity class just use the id to attach the Listener to the button
+
+Make sure you have the plugin in your build.gradle
+ ```
+ apply plugin: 'kotlin-android-extensions'
+ ```
+
+You can access the button directly by using the id like below :
+```
+ addButton.setOnClickListener{
+  ....
+  yourcode
+}
+
+  ```
+
+
 
 
 
